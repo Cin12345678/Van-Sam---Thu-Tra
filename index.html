@@ -1,0 +1,1636 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Văn Sâm & Thu Trà | Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --cream: #faf7ef;
+    --white: #fffefa;
+    --gold: #e8cb91;
+    --gold-light: #e5cf91;
+    --brown: #6b5140;
+    --text: #4b4039;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+button { cursor: pointer; font-family: inherit; }
+img { max-width: 100%; }
+
+.section {
+    padding: 85px 20px;
+    text-align: center;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #543018;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 48px);
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 2;
+    max-width: 680px;
+    margin: 0 auto;
+    color: #817469;
+}
+
+.line {
+    width: 65px;
+    height: 1px;
+    background: var(--gold);
+    margin: 25px auto;
+}
+
+/* HOA RƠI */
+#petals {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.petal {
+    position: absolute;
+    top: -30px;
+    width: 13px;
+    height: 18px;
+    background: #f7b9c4;
+    border-radius: 70% 20% 70% 20%;
+    opacity: .5;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-30px) rotate(0deg); }
+    100% {
+        transform: translateY(110vh) translateX(70px)
+                   rotate(360deg);
+    }
+}
+
+/* MỞ THIỆP */
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background:
+        radial-gradient(circle at 20% 20%, #fff 0, transparent 45%),
+        linear-gradient(135deg, #f8f1e4, #e8dac7);
+    transition: opacity 1s, visibility 1s;
+}
+
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.envelope {
+    width: min(440px, 100%);
+    padding: 70px 25px;
+    background: #fffdf8;
+    border: 1px solid var(--gold-light);
+    outline: 1px solid #e5d3b5;
+    outline-offset: -14px;
+    box-shadow: 0 20px 70px #8b6a4030;
+    text-align: center;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    50% { transform: translateY(-9px); }
+}
+
+.small-title {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    margin-bottom: 35px;
+}
+
+.envelope h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(55px, 12vw, 76px);
+    line-height: 1.2;
+    color: var(--brown);
+    font-weight: 400;
+}
+
+.envelope h1 span {
+    color: var(--gold);
+    font-size: 55px;
+}
+
+.opening-date {
+    margin: 30px 0;
+    font-size: 15px;
+    letter-spacing: 5px;
+}
+
+.seal {
+    padding: 15px 38px;
+    background: var(--gold);
+    border: none;
+    border-radius: 35px;
+    color: white;
+    transition: .3s;
+}
+
+.seal:hover {
+    transform: scale(1.07);
+    background: #927021;
+}
+
+.click-text {
+    margin-top: 18px;
+    font-size: 11px;
+    color: #998777;
+}
+
+/* NÚT NHẠC */
+.music-btn {
+    position: fixed;
+    right: 22px;
+    top: 22px;
+    z-index: 50;
+    width: 54px;
+    height: 54px;
+    border: 1px solid var(--gold-light);
+    border-radius: 50%;
+    background: #fffdf9;
+    font-size: 24px;
+    color: var(--gold);
+    box-shadow: 0 5px 20px #0002;
+    display: none;
+}
+
+.music-btn.playing {
+    animation: rotate 6s linear infinite;
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+/* TRANG CHÍNH */
+#mainContent { display: none; }
+
+    
+.hero {
+    min-height: 100vh;
+    position: relative;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("images/anh1.jpg");
+
+    background-size: cover;
+
+    /* Hiển thị phần phía trên của ảnh */
+    background-position: center 15%;
+
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 30px;
+}
+
+
+.hero-content {
+    animation: fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sub-heading {
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(65px, 12vw, 115px);
+    line-height: 1.15;
+    font-weight: 400;
+}
+
+.hero h1 span { color: #8d6f33; }
+
+.hero-date {
+    font-size: 17px;
+    letter-spacing: 4px;
+    margin-top: 25px;
+}
+
+.hero .line { background: white; }
+
+.hero-note {
+    max-width: 520px;
+    margin: auto;
+    line-height: 2;
+    font-size: 14px;
+}
+
+/* LỜI MỜI */
+.invitation { background: var(--white); }
+
+.couple-names {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+    margin-top: 50px;
+}
+
+.couple-names h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 50px;
+    color: var(--brown);
+    font-weight: 400;
+}
+
+.couple-names p {
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-top: 8px;
+}
+
+.ampersand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 55px;
+    color: var(--gold);
+}
+
+/* ĐẾM NGƯỢC */
+.countdown { background: #eee3d1; }
+
+.countdown-box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown-box > div {
+    background: #fffdf8;
+    border: 1px solid #e3d2b9;
+    width: 115px;
+    padding: 24px 10px;
+    border-radius: 12px;
+}
+
+.countdown-box strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--brown);
+}
+
+.countdown-box span {
+    display: block;
+    font-size: 11px;
+    margin-top: 10px;
+    color: #8b7a68;
+}
+
+/* CÔ DÂU CHÚ RỂ */
+.couple { background: var(--white); }
+
+.couple-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px;
+    max-width: 800px;
+    margin: 45px auto 0;
+}
+
+.person img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 180px 180px 10px 10px;
+}
+
+.person h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    margin-top: 20px;
+    color: var(--brown);
+    font-weight: 400;
+}
+
+.person p {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+}
+
+/* LỊCH TRÌNH GIỐNG ẢNH MẪU */
+.event {
+    background: #f8f4ec;
+}
+
+.wedding-schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+    max-width: 1280px;
+    margin: 45px auto 0;
+    text-align: left;
+}
+
+.schedule-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid #eadb9e;
+    border-radius: 30px;
+    padding: 45px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(60,40,20,.07);
+}
+
+.schedule-ribbon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 22px;
+    border-radius: 0 28px 0 18px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.bride-schedule .schedule-ribbon {
+    background: #ffe2e6;
+    color: #a00018;
+}
+
+.groom-schedule .schedule-ribbon {
+    background: #c7a600;
+    color: #fff;
+}
+
+.schedule-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    font-size: 34px;
+    margin-bottom: 30px;
+}
+
+.bride-schedule .schedule-symbol {
+    color: #e60024;
+    background: #fff0f1;
+}
+
+.groom-schedule .schedule-symbol {
+    color: #ad8d00;
+    background: #f8f2e4;
+}
+
+.schedule-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 700;
+    color: #211c1b;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.schedule-date {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+.bride-schedule .schedule-date { color: #e00022; }
+.groom-schedule .schedule-date { color: #a48700; }
+
+.schedule-divider {
+    height: 1px;
+    background: #ededed;
+    margin: 26px 0;
+}
+
+.schedule-divider.dashed {
+    background: none;
+    border-top: 1px dashed #dedede;
+    margin: 18px 0;
+}
+
+.schedule-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.schedule-icon {
+    flex: 0 0 36px;
+    height: 36px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.bride-schedule .schedule-icon {
+    background: #fff0f1;
+    color: #e00022;
+}
+
+.groom-schedule .schedule-icon {
+    background: #f8f2e4;
+    color: #a48700;
+}
+
+.schedule-item strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #201c1b;
+    line-height: 1.5;
+}
+
+.schedule-item p {
+    font-size: 13px;
+    color: #887c72;
+    line-height: 1.7;
+    margin-top: 3px;
+}
+
+.address-item { min-height: 64px; }
+
+.schedule-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.schedule-btn {
+    min-height: 60px;
+    padding: 12px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.bride-schedule .direction-btn {
+    border: 1px solid #ff7481;
+    background: #fff;
+    color: #e00022;
+}
+
+.groom-schedule .direction-btn {
+    border: 1px solid #c5a400;
+    background: #c5a400;
+    color: #fff;
+}
+
+.calendar-btn {
+    border: 1px solid #e5ded3;
+    background: #fff;
+    color: #302820;
+}
+
+.schedule-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0,0,0,.1);
+}
+
+/* ALBUM ẢNH */
+.gallery { background: var(--white); }
+
+
+/* ALBUM ẢNH CƯỚI - HÌNH CHỮ NHẬT ĐỨNG */
+
+.gallery {
+    background: #fffefa;
+    text-align: center;
+}
+
+.slider {
+    width: 100%;
+    max-width: 580px;
+    margin: 40px auto 0;
+    position: relative;
+}
+
+.slider img {
+    display: block;
+    width: 100%;
+    height: 780px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 22px;
+    border: 3px solid #ead8b3;
+    box-shadow: 0 15px 40px rgba(90, 65, 40, 0.18);
+    transition: opacity 0.25s ease;
+}
+
+/* NÚT CHUYỂN ẢNH */
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    color: #795b3e;
+    font-size: 22px;
+    z-index: 2;
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+/* ĐIỆN THOẠI */
+
+@media (max-width: 700px) {
+    .slider {
+        max-width: 95%;
+    }
+
+    .slider img {
+        width: 100%;
+        height: 560px;
+        border-radius: 18px;
+    }
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffffd9;
+    color: var(--brown);
+    font-size: 20px;
+    z-index: 2;
+}
+
+.prev { left: 12px; }
+.next { right: 12px; }
+
+.dots { margin-top: 20px; }
+
+.dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background: #d4c8b6;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: var(--gold);
+    transform: scale(1.3);
+}
+
+/* HỘP MỪNG CƯỚI */
+.wedding-gift {
+    background: #f8f5ed;
+    padding: 85px 20px;
+}
+
+.gift-panel {
+    background: #fff;
+    border: 1px solid #eee0a5;
+    border-radius: 30px;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 55px 30px;
+    box-shadow: 0 5px 10px #00000005;
+}
+
+.gift-panel h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(55px, 9vw, 78px);
+    color: #332a25;
+    margin-bottom: 5px;
+}
+
+.gift-tabs {
+    display: flex;
+    background: #f3f3f3;
+    border-radius: 50px;
+    padding: 5px;
+    max-width: 400px;
+    margin: 35px auto;
+}
+
+.gift-tab {
+    width: 50%;
+    padding: 12px 10px;
+    border: none;
+    background: transparent;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #8b7b6d;
+}
+
+.gift-tab.active {
+    background: white;
+    color: #332a25;
+    box-shadow: 0 2px 7px #0000000b;
+}
+
+.gift-content {
+    display: none;
+    animation: fadeUp .4s ease;
+}
+
+.gift-content.active { display: block; }
+
+.gift-qr {
+    width: 260px;
+    max-width: 100%;
+    margin: 30px auto 22px;
+    border: 2px dashed #e1b840;
+    border-radius: 22px;
+    padding: 14px;
+    background: white;
+}
+
+.gift-qr img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.gift-owner {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #3b2b20;
+}
+
+.gift-bank {
+    margin-top: 6px;
+    color: #897260;
+}
+
+.gift-account {
+    margin-top: 8px;
+    color: #a17a16;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.copy-btn {
+    margin-top: 22px;
+    border: 1px solid #d7ae44;
+    background: white;
+    color: #a17a16;
+    border-radius: 40px;
+    padding: 14px 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.copy-btn:hover { background: #fbdf8a; }
+
+/* CẢM ƠN */
+.thankyou { background: #f7e9d3; }
+
+
+/* TẠO KHOẢNG CÁCH GIỮA TÊN CÔ DÂU CHÚ RỂ */
+
+.thankyou h2 {
+    word-spacing: 8px;
+}
+
+.thankyou-amp {
+    display: inline-block;
+    margin: 0 18px;
+    color: #8b6b46;
+}
+
+.thankyou p {
+    line-height: 2;
+    max-width: 550px;
+    margin: auto;
+}
+
+.signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: 38px;
+    margin-top: 25px !important;
+    color: #e72747;
+}
+
+footer {
+    background: #ab8369;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+footer span {
+    display: block;
+    margin-top: 12px;
+    color: #ead5b1;
+}
+
+/* GIAO DIỆN ĐIỆN THOẠI */
+@media (max-width: 800px) {
+    .wedding-schedule-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .schedule-card {
+        padding: 65px 22px 28px;
+        border-radius: 22px;
+    }
+
+    .schedule-card h3 { font-size: 24px; }
+
+    .schedule-ribbon {
+        font-size: 11px;
+        padding: 10px 14px;
+    }
+
+    .schedule-actions { gap: 10px; }
+
+    .schedule-btn {
+        font-size: 11px;
+        min-height: 52px;
+    }
+}
+
+@media (max-width: 700px) {
+    .section { padding: 65px 15px; }
+
+    .couple-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .person img { height: 390px; }
+
+    .couple-names { gap: 15px; }
+
+    .couple-names h3 { font-size: 35px; }
+
+    .countdown-box { gap: 8px; }
+
+    .countdown-box > div {
+        width: 75px;
+        padding: 15px 5px;
+    }
+
+    .countdown-box strong { font-size: 25px; }
+
+    .slider img { height: 330px; }
+
+    .gift-panel {
+        padding: 40px 15px;
+        border-radius: 20px;
+    }
+
+    .gift-tab { font-size: 12px; }
+
+    .gift-qr { width: 225px; }
+
+    .hero h1 { font-size: 68px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NHẠC NỀN -->
+<audio id="music" loop preload="auto">
+    <source src="images/wedding.mp3" type="audio/mpeg">
+    Trình duyệt không hỗ trợ phát nhạc.
+</audio>
+
+<button class="music-btn" id="musicBtn"
+        aria-label="Bật hoặc tắt nhạc">♫</button>
+
+<!-- HOA RƠI -->
+<div id="petals" aria-hidden="true"></div>
+
+<!-- MỞ THIỆP -->
+<section class="opening" id="opening">
+    <div class="envelope">
+        <p class="small-title">WEDDING INVITATION</p>
+
+        <h1>Văn Sâm</h1>
+        <h1><span>&</span></h1>
+        <h1>Thu Trà</h1>
+
+        <p class="opening-date">29 . 11 . 2026</p>
+
+        <button class="seal" id="openBtn">
+            Mở thiệp ♡
+        </button>
+
+        <p class="click-text">Chạm để mở lời mời</p>
+    </div>
+</section>
+
+<main id="mainContent">
+
+    <!-- ẢNH BÌA -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="sub-heading">WE ARE GETTING MARRIED</p>
+
+            <h1>Văn Sâm <span>&</span></h1>
+            <h1>Thu Trà</h1>
+
+            <p class="hero-date">29 November 2026</p>
+
+            <div class="line"></div>
+
+            
+        </div>
+    </section>
+
+    <!-- LỜI MỜI -->
+    <section class="invitation section">
+        <p class="eyebrow">SAVE THE DATE</p>
+        <h2>Trân trọng kính mời</h2>
+
+        <p class="description">
+            Sự hiện diện của bạn là niềm vui và niềm hạnh phúc
+            lớn lao đối với gia đình chúng tôi.
+        </p>
+
+        <div class="couple-names">
+            <div>
+                <h3>Văn Sâm</h3>
+                <p>Chú rể</p>
+            </div>
+
+            <span class="ampersand">&amp;</span>
+
+            <div>
+                <h3>Thu Trà</h3>
+                <p>Cô dâu</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ĐẾM NGƯỢC -->
+    <section class="countdown section">
+        <p class="eyebrow">COUNTDOWN TO OUR WEDDING</p>
+        <h2>Ngày chung đôi</h2>
+
+        <div class="countdown-box" id="countdownBox">
+            <div>
+                <strong id="days">00</strong>
+                <span>Ngày</span>
+            </div>
+            <div>
+                <strong id="hours">00</strong>
+                <span>Giờ</span>
+            </div>
+            <div>
+                <strong id="minutes">00</strong>
+                <span>Phút</span>
+            </div>
+            <div>
+                <strong id="seconds">00</strong>
+                <span>Giây</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÔ DÂU CHÚ RỂ -->
+    <section class="couple section">
+        <p class="eyebrow">THE BRIDE &amp; THE GROOM</p>
+        <h2>Nhân vật chính</h2>
+
+        <div class="couple-grid">
+            <div class="person">
+                <img src="images/anhsam.jpg"
+                     alt="Chú rể Văn Sâm">
+
+                <h3>Văn Sâm</h3>
+                <p>THE GROOM</p>
+            </div>
+
+            <div class="person">
+                <img src="images/anh2.jpg"
+                     alt="Cô dâu Thu Trà">
+
+                <h3>Thu Trà</h3>
+                <p>THE BRIDE</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LỊCH TRÌNH LỄ CƯỚI -->
+    <section class="event section" id="weddingEvent">
+
+        <p class="eyebrow">WEDDING CEREMONY</p>
+        <h2>Lịch Trình Lễ Cưới</h2>
+
+        <div class="wedding-schedule-grid">
+
+            <!-- NHÀ GÁI -->
+            <article class="schedule-card bride-schedule">
+
+                <div class="schedule-ribbon">
+                    LỄ VU QUY (NHÀ GÁI)
+                </div>
+
+                <div class="schedule-symbol">♡</div>
+
+                <h3>Hôn Lễ Tại Tư Gia Nhà Gái</h3>
+
+                <p class="schedule-date">
+                    CHỦ NHẬT, NGÀY 29/11/2026
+                </p>
+
+                <div class="schedule-divider"></div>
+
+                <div class="schedule-item">
+                    <span class="schedule-icon">♧</span>
+                    <div>
+                        <strong>09:00 Sáng - Đón Khách</strong>
+                        <p>Đón tiếp quan viên hai họ và người thân</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item">
+                    <span class="schedule-icon">♡</span>
+                    <div>
+                        <strong>10:00 Sáng - Khai tiệc</strong>
+                        <p>Cử hành nghi thức lễ Vu Quy</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item">
+                    <span class="schedule-icon">♨</span>
+                    <div>
+                        <strong>13:00 - Làm lễ vu quy</strong>
+                        <p>Thực hiện nghi thức truyền thống và chụp ảnh kỷ niệm</p>
+                    </div>
+                </div>
+
+                <div class="schedule-divider dashed"></div>
+
+                <div class="schedule-item address-item">
+                    <span class="schedule-icon">⌖</span>
+                    <div>
+                        <strong>Địa chỉ tổ chức:</strong>
+                        <p id="brideAddressText">
+                            Nhà văn hóa làng Bạch Liên,
+                            Liên Phương, Hồng Vân, Hà Nội
+                        </p>
+                    </div>
+                </div>
+
+                <div class="schedule-actions">
+                    <a id="brideDirection"
+                       class="schedule-btn direction-btn"
+                       href="#"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        ➤ CHỈ ĐƯỜNG
+                    </a>
+
+                    <button type="button"
+                            class="schedule-btn calendar-btn"
+                            onclick="addWeddingCalendar('bride')">
+                        ▣ THÊM LỊCH
+                    </button>
+                </div>
+
+            </article>
+
+            <!-- NHÀ TRAI -->
+            <article class="schedule-card groom-schedule">
+
+                <div class="schedule-ribbon">
+                    LỄ THÀNH HÔN (NHÀ TRAI)
+                </div>
+
+                <div class="schedule-symbol">♕</div>
+
+                <h3>Hôn Lễ Tại Tư Gia Nhà Trai</h3>
+
+                <p class="schedule-date">
+                    CHỦ NHẬT, NGÀY 29/11/2026
+                </p>
+
+                <div class="schedule-divider"></div>
+
+                <div class="schedule-item">
+                    <span class="schedule-icon">♧</span>
+                    <div>
+                        <strong>
+                            09:00 Sáng - Đón Khách &amp; Chụp Hình
+                        </strong>
+                        <p>Đón tiếp khách quý và chụp ảnh kỷ niệm</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item">
+                    <span class="schedule-icon">✧</span>
+                    <div>
+                        <strong>10:00 Sáng - Khai Tiệc</strong>
+                        <p>Khai tiệc mừng hạnh phúc đôi uyên ương</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item">
+                    <span class="schedule-icon">♕</span>
+                    <div>
+                        <strong>14:00 - Rước Dâu</strong>
+                        <p>Nghi thức rước dâu và đón dâu</p>
+                    </div>
+                </div>
+
+                <div class="schedule-divider dashed"></div>
+
+                <div class="schedule-item address-item">
+                    <span class="schedule-icon">⌖</span>
+                    <div>
+                        <strong>Địa chỉ tổ chức:</strong>
+                        <p id="groomAddressText">
+                            Số 10 đường Nhị Tam,
+                            Vân La, Hồng Vân, Hà Nội
+                        </p>
+                    </div>
+                </div>
+
+                <div class="schedule-actions">
+                    <a id="groomDirection"
+                       class="schedule-btn direction-btn"
+                       href="#"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        ➤ CHỈ ĐƯỜNG
+                    </a>
+
+                    <button type="button"
+                            class="schedule-btn calendar-btn"
+                            onclick="addWeddingCalendar('groom')">
+                        ▣ THÊM LỊCH
+                    </button>
+                </div>
+
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ALBUM ẢNH -->
+    <section class="gallery section">
+        <p class="eyebrow">OUR MEMORIES</p>
+
+        <h2>Album ảnh cưới</h2>
+
+        <p class="description">
+            Những khoảnh khắc đáng nhớ của chúng mình
+        </p>
+
+        <div class="slider">
+            <button class="arrow prev" id="prev"
+                    aria-label="Ảnh trước">❮</button>
+
+            <img id="galleryImage"
+                 src="images/anh3.jpg"
+                 alt="Album ảnh cưới">
+
+            <button class="arrow next" id="next"
+                    aria-label="Ảnh tiếp theo">❯</button>
+        </div>
+
+        <div class="dots" id="dots"></div>
+    </section>
+
+    <!-- HỘP MỪNG CƯỚI -->
+    <section class="wedding-gift section">
+        <div class="gift-panel">
+
+            <p class="eyebrow">CHÚC PHÚC TỪ XA</p>
+
+            <h2>Hộp Mừng Cưới</h2>
+
+            <p class="description">
+                Sự hiện diện và lời chúc phúc của quý khách
+                là niềm vinh hạnh to lớn của gia đình chúng mình!
+            </p>
+
+            <div class="gift-tabs">
+                <button class="gift-tab active"
+                        id="groomTab"
+                        aria-pressed="true">
+                    Mừng Chú Rể
+                </button>
+
+                <button class="gift-tab"
+                        id="brideTab"
+                        aria-pressed="false">
+                    Mừng Cô Dâu
+                </button>
+            </div>
+
+            <!-- QR CHÚ RỂ -->
+            <div class="gift-content active" id="groomGift">
+
+                <div class="gift-qr">
+                    <img src="images/qrsam.jpg"
+                         alt="QR chuyển khoản chú rể Văn Sâm">
+                </div>
+
+                <h3 class="gift-owner" id="groomOwner">
+                    VĂN SÂM
+                </h3>
+
+                <p class="gift-bank" id="groomBank">
+                    VPBank
+                </p>
+
+                <p class="gift-account" id="groomAccount">
+                    249098795
+                </p>
+
+                <button class="copy-btn"
+                        onclick="copyAccount('groom')">
+                    ▣ SAO CHÉP STK
+                </button>
+            </div>
+
+            <!-- QR CÔ DÂU -->
+            <div class="gift-content" id="brideGift">
+
+                <div class="gift-qr">
+                    <img src="images/qrtra.jpg"
+                         alt="QR chuyển khoản cô dâu Thu Trà">
+                </div>
+
+                <h3 class="gift-owner" id="brideOwner">
+                    THU TRÀ
+                </h3>
+
+                <p class="gift-bank" id="brideBank">
+                    TECHCOMBANK
+                </p>
+
+                <p class="gift-account" id="brideAccount">
+                    19036704487016
+                </p>
+
+                <button class="copy-btn"
+                        onclick="copyAccount('bride')">
+                    ▣ SAO CHÉP STK
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LỜI CẢM ƠN -->
+    <section class="thankyou section">
+        <h2>
+    Văn Sâm <span class="thankyou-amp">&amp;</span> Thu Trà
+</h2>
+        <p>
+            Cảm ơn bạn đã dành thời gian chia sẻ
+            niềm hạnh phúc cùng chúng mình.
+        </p>
+
+        <p class="signature">With love ♡</p>
+    </section>
+
+    <footer>
+        <p>VĂN SÂM &amp; THU TRÀ</p>
+        <span>29 . 11 . 2026</span>
+    </footer>
+
+</main>
+
+<script>
+/* ==========================================
+   THÔNG TIN THIỆP CƯỚI
+========================================== */
+
+const CONFIG = {
+    weddingDate: "2026-11-29T00:00:00+00:00",
+
+    groom: {
+        address: "Số 10 đường Nhị Tam, Vân La, Hồng Vân, Hà Nội",
+        bank: "VPBank",
+        account: "249098795",
+        owner: "VĂN SÂM"
+    },
+
+    bride: {
+        address: "Nhà văn hóa làng Bạch Liên, Liên Phương, Hồng Vân, Hà Nội",
+        bank: "TECHCOMBANK",
+        account: "19036704487016",
+        owner: "THU TRÀ"
+    }
+};
+
+/* ==========================================
+   MỞ THIỆP VÀ PHÁT NHẠC
+========================================== */
+
+const opening = document.getElementById("opening");
+const mainContent = document.getElementById("mainContent");
+const openBtn = document.getElementById("openBtn");
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+
+music.volume = 0.7;
+
+openBtn.addEventListener("click", () => {
+
+    opening.classList.add("hide");
+
+    setTimeout(() => {
+        opening.style.display = "none";
+        mainContent.style.display = "block";
+        window.scrollTo(0, 0);
+    }, 1000);
+
+    musicBtn.style.display = "block";
+
+    music.play()
+        .then(() => {
+            musicBtn.classList.add("playing");
+            musicBtn.textContent = "♫";
+        })
+        .catch(error => {
+            console.log("Không thể phát nhạc:", error);
+            musicBtn.classList.remove("playing");
+        });
+});
+
+/* BẬT / TẮT NHẠC */
+
+musicBtn.addEventListener("click", () => {
+
+    if (music.paused) {
+        music.play()
+            .then(() => {
+                musicBtn.classList.add("playing");
+            })
+            .catch(error => {
+                console.log("Lỗi phát nhạc:", error);
+            });
+    } else {
+        music.pause();
+        musicBtn.classList.remove("playing");
+    }
+});
+
+/* ==========================================
+   ĐẾM NGƯỢC
+========================================== */
+
+
+const weddingDate = new Date(
+    "2026-11-29T00:00:00+00:00"
+).getTime();
+
+function updateCountdown() {
+    const now = Date.now();
+    const distance = weddingDate - now;
+
+    if (distance <= 0) {
+        document.getElementById("countdownBox").innerHTML =
+            "<h3>Chúng mình đã về chung một nhà! ♡</h3>";
+        return;
+    }
+
+    const days = Math.floor(distance / 86400000);
+    const hours = Math.floor((distance % 86400000) / 3600000);
+    const minutes = Math.floor((distance % 3600000) / 60000);
+    const seconds = Math.floor((distance % 60000) / 1000);
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ==========================================
+   ALBUM ẢNH CƯỚI
+========================================== */
+
+const photos = [
+    "images/anh1.jpg",
+    "images/anh2.jpg",
+    "images/anhsam.jpg",
+    "images/anh3.jpg",
+    "images/anh4.jpg",
+    "images/anh5.jpg",
+    "images/anh6.jpg",
+    "images/anh7.jpg",
+    "images/anh8.jpg"
+];
+
+let currentIndex = 0;
+let photoTimer;
+
+const galleryImage = document.getElementById("galleryImage");
+const dotsContainer = document.getElementById("dots");
+
+photos.forEach((photo, index) => {
+    const dot = document.createElement("span");
+    dot.className = "dot";
+
+    dot.addEventListener("click", () => showPhoto(index));
+    dotsContainer.appendChild(dot);
+});
+
+function showPhoto(index) {
+    currentIndex = (index + photos.length) % photos.length;
+
+    galleryImage.style.opacity = "0";
+    clearTimeout(photoTimer);
+
+    photoTimer = setTimeout(() => {
+        galleryImage.src = photos[currentIndex];
+        galleryImage.style.opacity = "1";
+    }, 250);
+
+    document.querySelectorAll(".dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+    });
+}
+
+document.getElementById("prev").addEventListener("click", () => {
+    showPhoto(currentIndex - 1);
+});
+
+document.getElementById("next").addEventListener("click", () => {
+    showPhoto(currentIndex + 1);
+});
+
+showPhoto(0);
+
+/* TỰ ĐỘNG CHUYỂN ẢNH */
+setInterval(() => {
+    showPhoto(currentIndex + 1);
+}, 4000);
+
+/* VUỐT ẢNH TRÊN ĐIỆN THOẠI */
+let touchStart = 0;
+
+galleryImage.addEventListener("touchstart", (e) => {
+    touchStart = e.touches[0].clientX;
+}, { passive: true });
+
+galleryImage.addEventListener("touchend", (e) => {
+    const touchEnd = e.changedTouches[0].clientX;
+
+    if (touchStart - touchEnd > 50) {
+        showPhoto(currentIndex + 1);
+    } else if (touchEnd - touchStart > 50) {
+        showPhoto(currentIndex - 1);
+    }
+}, { passive: true });
+
+/* ==========================================
+   GOOGLE MAPS
+========================================== */
+
+function setupMap(type) {
+    const info = CONFIG[type];
+    const addressText = document.getElementById(type + "AddressText");
+    const direction = document.getElementById(type + "Direction");
+
+    if (!info || !addressText || !direction) return;
+
+    addressText.textContent = info.address;
+
+    const address = encodeURIComponent(info.address);
+
+    direction.href =
+        "https://www.google.com/maps/dir/?api=1&destination=" +
+        address;
+
+    direction.target = "_blank";
+    direction.rel = "noopener noreferrer";
+}
+
+setupMap("groom");
+setupMap("bride");
+
+/* ==========================================
+   THÊM LỊCH GOOGLE CALENDAR
+========================================== */
+
+function addWeddingCalendar(type) {
+    const info = CONFIG[type];
+    if (!info) return;
+
+    const title = type === "groom"
+        ? "Lễ Thành Hôn - Văn Sâm & Thu Trà"
+        : "Lễ Vu Quy - Văn Sâm & Thu Trà";
+
+    // Giờ minh họa, cần xác nhận lịch thực tế
+    const start = "20261129T010000Z";
+    const end = "20261129T080000Z";
+
+    const url =
+        "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+        "&text=" + encodeURIComponent(title) +
+        "&dates=" + start + "/" + end +
+        "&details=" + encodeURIComponent(
+            "Trân trọng kính mời tham dự lễ cưới của Văn Sâm và Thu Trà."
+        ) +
+        "&location=" + encodeURIComponent(info.address);
+
+    window.open(url, "_blank", "noopener,noreferrer");
+}
+
+/* ==========================================
+   HỘP MỪNG CƯỚI - CHUYỂN TAB
+========================================== */
+
+const groomTab = document.getElementById("groomTab");
+const brideTab = document.getElementById("brideTab");
+const groomGift = document.getElementById("groomGift");
+const brideGift = document.getElementById("brideGift");
+
+function switchGift(type) {
+    const isGroom = type === "groom";
+
+    groomTab.classList.toggle("active", isGroom);
+    brideTab.classList.toggle("active", !isGroom);
+
+    groomTab.setAttribute("aria-pressed", String(isGroom));
+    brideTab.setAttribute("aria-pressed", String(!isGroom));
+
+    groomGift.classList.toggle("active", isGroom);
+    brideGift.classList.toggle("active", !isGroom);
+}
+
+groomTab.addEventListener("click", () => switchGift("groom"));
+brideTab.addEventListener("click", () => switchGift("bride"));
+
+/* ==========================================
+   HIỂN THỊ THÔNG TIN NGÂN HÀNG
+========================================== */
+
+function setupBank(type) {
+    const info = CONFIG[type];
+
+    document.getElementById(type + "Owner").textContent =
+        info.owner;
+
+    document.getElementById(type + "Bank").textContent =
+        info.bank;
+
+    document.getElementById(type + "Account").textContent =
+        info.account;
+}
+
+setupBank("groom");
+setupBank("bride");
+
+/* ==========================================
+   SAO CHÉP SỐ TÀI KHOẢN
+========================================== */
+
+async function copyAccount(type) {
+    const account = CONFIG[type].account;
+
+    if (!account) {
+        alert("Chưa cập nhật số tài khoản!");
+        return;
+    }
+
+    try {
+        await navigator.clipboard.writeText(account);
+        alert("Đã sao chép số tài khoản: " + account);
+    } catch (error) {
+        prompt("Sao chép số tài khoản:", account);
+    }
+}
+
+/* ==========================================
+   HIỆU ỨNG HOA RƠI
+========================================== */
+
+const petalsContainer = document.getElementById("petals");
+
+for (let i = 0; i < 20; i++) {
+    const petal = document.createElement("span");
+
+    petal.className = "petal";
+    petal.style.left = Math.random() * 100 + "%";
+    petal.style.animationDuration =
+        (8 + Math.random() * 10) + "s";
+    petal.style.animationDelay =
+        (-Math.random() * 18) + "s";
+    petal.style.opacity =
+        0.2 + Math.random() * 0.35;
+
+    petalsContainer.appendChild(petal);
+}
+
+/* ==========================================
+   KIỂM TRA NHẠC
+========================================== */
+
+music.addEventListener("error", () => {
+    console.warn("Không tìm thấy file images/wedding.mp3");
+});
+
+console.log("Thiệp cưới Văn Sâm & Thu Trà đã sẵn sàng!");
+
+</script>
+</body>
+</html>
