@@ -1396,8 +1396,8 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 /* ==========================================
-   ALBUM ẢNH CƯỚI
-========================================== */
+  
+/* ALBUM ẢNH CƯỚI */
 
 const photos = [
     "images/anh1.jpg",
@@ -1413,6 +1413,7 @@ const photos = [
 
 let currentIndex = 0;
 let photoTimer;
+let changeTimer;
 
 const galleryImage = document.getElementById("galleryImage");
 const dotsContainer = document.getElementById("dots");
@@ -1428,31 +1429,38 @@ photos.forEach((photo, index) => {
 function showPhoto(index) {
     currentIndex = (index + photos.length) % photos.length;
 
-    galleryImage.style.opacity = "0";
-    clearTimeout(photoTimer);
+    clearTimeout(changeTimer);
 
-    photoTimer = setTimeout(() => {
-        galleryImage.src = photos[currentIndex];
+    galleryImage.style.opacity = "0";
+
+    const nextSrc = photos[currentIndex];
+    const nextImage = new Image();
+
+    nextImage.onload = () => {
+        changeTimer = setTimeout(() => {
+            galleryImage.src = nextSrc;
+
+            requestAnimationFrame(() => {
+                galleryImage.style.opacity = "1";
+            });
+        }, 350);
+    };
+
+    nextImage.onerror = () => {
         galleryImage.style.opacity = "1";
-    }, 250);
+    };
+
+    nextImage.src = nextSrc;
 
     document.querySelectorAll(".dot").forEach((dot, i) => {
         dot.classList.toggle("active", i === currentIndex);
     });
 }
 
-document.getElementById("prev").addEventListener("click", () => {
-    showPhoto(currentIndex - 1);
-});
-
-document.getElementById("next").addEventListener("click", () => {
-    showPhoto(currentIndex + 1);
-});
-
 showPhoto(0);
 
 /* TỰ ĐỘNG CHUYỂN ẢNH */
-setInterval(() => {
+photoTimer = setInterval(() => {
     showPhoto(currentIndex + 1);
 }, 4000);
 
