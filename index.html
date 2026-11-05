@@ -1485,16 +1485,26 @@ galleryImage.addEventListener("touchend", (e) => {
    GOOGLE MAPS
 ========================================== */
 
+
 function setupMap(type) {
     const info = CONFIG[type];
+
     const addressText = document.getElementById(type + "AddressText");
     const direction = document.getElementById(type + "Direction");
 
     if (!info || !addressText || !direction) return;
 
+    // Hiển thị địa chỉ nhà trai, nhà gái như cũ
     addressText.textContent = info.address;
 
-    const address = encodeURIComponent(info.address);
+    // Nhà trai dùng tọa độ chính xác
+    // Nhà gái giữ nguyên địa chỉ
+    const destination =
+        type === "groom"
+            ? "20.8745084,105.9183077"
+            : info.address;
+
+    const address = encodeURIComponent(destination);
 
     direction.href =
         "https://www.google.com/maps/dir/?api=1&destination=" +
@@ -1516,6 +1526,7 @@ function addWeddingCalendar(type) {
     if (!info) return;
 
     const title = type === "groom"
+    
         ? "Lễ Thành Hôn - Văn Sâm & Thu Trà"
         : "Lễ Vu Quy - Văn Sâm & Thu Trà";
 
