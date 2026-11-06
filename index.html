@@ -563,6 +563,7 @@ img { max-width: 100%; }
 }
 
 
+
 /* ========== ALBUM ẢNH CƯỚI 3D - KÍCH THƯỚC LỚN HƠN ========== */
 
 .gallery {
@@ -580,6 +581,7 @@ img { max-width: 100%; }
     margin: 25px auto 0;
     overflow: hidden;
     perspective: 1000px;
+    isolation: isolate;
     touch-action: pan-y;
     user-select: none;
     -webkit-user-select: none;
@@ -612,6 +614,7 @@ img { max-width: 100%; }
 
     box-shadow: 0 8px 25px rgba(0,0,0,0.18);
 
+    z-index: 0;
     opacity: 0;
     visibility: hidden;
 
@@ -637,9 +640,9 @@ img { max-width: 100%; }
     -webkit-user-drag: none;
 }
 
-/* Ảnh giữa */
+/* Ảnh giữa - luôn nằm trên cùng */
 .gallery-slide.active {
-    z-index: 5;
+    z-index: 10;
     opacity: 1;
     visibility: visible;
 
@@ -650,7 +653,7 @@ img { max-width: 100%; }
         scale(1);
 }
 
-/* Ảnh bên trái */
+/* Ảnh bên trái - nằm phía sau */
 .gallery-slide.prev-slide {
     z-index: 3;
     opacity: 0.85;
@@ -663,7 +666,7 @@ img { max-width: 100%; }
         scale(0.78);
 }
 
-/* Ảnh bên phải */
+/* Ảnh bên phải - nằm phía sau */
 .gallery-slide.next-slide {
     z-index: 3;
     opacity: 0.85;
@@ -744,21 +747,99 @@ img { max-width: 100%; }
 
     .wedding-gallery {
         width: 100%;
-        max-width: 520px;
-        height: 400px;
+        max-width: 420px;
+        height: 450px;
         margin: 20px auto 0;
+        perspective: 1200px;
+        isolation: isolate;
+    }
+
+    /* Ảnh chữ nhật đứng, không vượt khung */
+    .gallery-slide {
+        width: 230px;
+        height: 380px;
+        border-radius: 12px;
+    }
+
+    /* Ảnh giữa */
+    .gallery-slide.active {
+        z-index: 10;
+        opacity: 1;
+        visibility: visible;
+
+        transform:
+            translate(-50%, -50%)
+            translateX(0)
+            rotateY(0deg)
+            scale(1);
+    }
+
+    /* Ảnh trái */
+    .gallery-slide.prev-slide {
+        z-index: 3;
+        opacity: 0.8;
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-155px)
+            rotateY(28deg)
+            scale(0.75);
+    }
+
+    /* Ảnh phải */
+    .gallery-slide.next-slide {
+        z-index: 3;
+        opacity: 0.8;
+
+        transform:
+            translate(-50%, -50%)
+            translateX(155px)
+            rotateY(-28deg)
+            scale(0.75);
+    }
+
+    /* Ảnh xa bên trái */
+    .gallery-slide.far-prev {
+        z-index: 1;
+        opacity: 0.4;
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-205px)
+            rotateY(38deg)
+            scale(0.55);
+    }
+
+    /* Ảnh xa bên phải */
+    .gallery-slide.far-next {
+        z-index: 1;
+        opacity: 0.4;
+
+        transform:
+            translate(-50%, -50%)
+            translateX(205px)
+            rotateY(-38deg)
+            scale(0.55);
+    }
+}
+
+/* ========== ĐIỆN THOẠI MÀN HÌNH NHỎ ========== */
+
+@media (max-width: 390px) {
+
+    .wedding-gallery {
+        height: 410px;
     }
 
     .gallery-slide {
-        width: 300px;
-        height: 450px;
-        border-radius: 10px;
+        width: 205px;
+        height: 345px;
     }
 
     .gallery-slide.prev-slide {
         transform:
             translate(-50%, -50%)
-            translateX(-108px)
+            translateX(-135px)
             rotateY(28deg)
             scale(0.75);
     }
@@ -766,7 +847,7 @@ img { max-width: 100%; }
     .gallery-slide.next-slide {
         transform:
             translate(-50%, -50%)
-            translateX(108px)
+            translateX(135px)
             rotateY(-28deg)
             scale(0.75);
     }
@@ -774,7 +855,7 @@ img { max-width: 100%; }
     .gallery-slide.far-prev {
         transform:
             translate(-50%, -50%)
-            translateX(-165px)
+            translateX(-180px)
             rotateY(38deg)
             scale(0.55);
     }
@@ -782,7 +863,7 @@ img { max-width: 100%; }
     .gallery-slide.far-next {
         transform:
             translate(-50%, -50%)
-            translateX(165px)
+            translateX(180px)
             rotateY(-38deg)
             scale(0.55);
     }
