@@ -1,45 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Văn Sâm & Thu Trà | Wedding Invitation</title>
 
-    <title>Văn Sâm & Thu Trà | Wedding Invitation</title>
+<!-- THẺ HIỂN THỊ KHI CHIA SẺ LINK QUA ZALO / FACEBOOK -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thiệp mời cưới Văn Sâm – Thu Trà">
+<meta property="og:description" content="Trân trọng kính mời bạn đến chung vui cùng gia đình chúng mình vào Chủ Nhật, ngày 29/11/2026.">
 
-    <!-- HIỂN THỊ KHI CHIA SẺ LINK -->
-    <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <meta property="og:title"
-          content="Thiệp mời cưới Văn Sâm & Thu Trà">
-
-    <meta property="og:description"
-          content="Trân trọng kính mời bạn đến chung vui trong ngày hạnh phúc của Văn Sâm & Thu Trà ❤️">
-
-    <meta property="og:image"
-          content="https://cin12345678.github.io/Van-Sam---Thu-Tra/anh1.jpg">
-
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <meta property="og:url"
-          content="https://cin12345678.github.io/Van-Sam---Thu-Tra/">
-
-    <meta name="twitter:card"
-          content="summary_large_image">
-
-    <!-- FONT CHỮ CŨ -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
-</head>
 <style>
 :root {
     --cream: #faf7ef;
@@ -240,26 +214,19 @@ img { max-width: 100%; }
 
 /* TRANG CHÍNH */
 #mainContent { display: none; }
-
     
 .hero {
     min-height: 100vh;
     position: relative;
-
     background-image:
         linear-gradient(
             rgba(0, 0, 0, 0.25),
             rgba(0, 0, 0, 0.45)
         ),
         url("images/anh1.jpg");
-
     background-size: cover;
-
-    /* Hiển thị phần phía trên của ảnh */
     background-position: center 15%;
-
     background-repeat: no-repeat;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -267,7 +234,6 @@ img { max-width: 100%; }
     color: white;
     padding: 30px;
 }
-
 
 .hero-content {
     animation: fadeUp 1.5s ease;
@@ -306,13 +272,6 @@ img { max-width: 100%; }
 }
 
 .hero .line { background: white; }
-
-.hero-note {
-    max-width: 520px;
-    margin: auto;
-    line-height: 2;
-    font-size: 14px;
-}
 
 /* LỜI MỜI */
 .invitation { background: var(--white); }
@@ -408,7 +367,7 @@ img { max-width: 100%; }
     color: var(--gold);
 }
 
-/* LỊCH TRÌNH GIỐNG ẢNH MẪU */
+/* LỊCH TRÌNH LỄ CƯỚI */
 .event {
     background: #f8f4ec;
 }
@@ -592,17 +551,13 @@ img { max-width: 100%; }
     box-shadow: 0 5px 12px rgba(0,0,0,.1);
 }
 
-
-
-/* ========== ALBUM ẢNH CƯỚI 3D - KÍCH THƯỚC LỚN HƠN ========== */
-
+/* ALBUM ẢNH CƯỚI 3D */
 .gallery {
     background: #fffefa;
     text-align: center;
     overflow: hidden;
 }
 
-/* Khung chứa toàn bộ album */
 .wedding-gallery {
     position: relative;
     width: 100%;
@@ -629,32 +584,24 @@ img { max-width: 100%; }
     transform-style: preserve-3d;
 }
 
-/* Ảnh hình chữ nhật đứng */
 .gallery-slide {
     position: absolute;
     top: 50%;
     left: 50%;
-
     width: 230px;
     height: 335px;
-
     border-radius: 12px;
     overflow: hidden;
     background: #f4eee5;
-
     box-shadow: 0 8px 25px rgba(0,0,0,0.18);
-
     z-index: 0;
     opacity: 0;
     visibility: hidden;
-
     transform: translate(-50%, -50%) scale(0.6);
-
     transition:
         transform 0.65s cubic-bezier(.22,1,.36,1),
         opacity 0.65s ease,
         visibility 0.65s ease;
-
     will-change: transform;
 }
 
@@ -662,80 +609,47 @@ img { max-width: 100%; }
     display: block;
     width: 100%;
     height: 100%;
-
     object-fit: contain;
     object-position: center;
-
     pointer-events: none;
     -webkit-user-drag: none;
 }
 
-/* Ảnh giữa - luôn nằm trên cùng */
 .gallery-slide.active {
     z-index: 10;
     opacity: 1;
     visibility: visible;
-
-    transform:
-        translate(-50%, -50%)
-        translateX(0)
-        rotateY(0deg)
-        scale(1);
+    transform: translate(-50%, -50%) translateX(0) rotateY(0deg) scale(1);
 }
 
-/* Ảnh bên trái - nằm phía sau */
 .gallery-slide.prev-slide {
     z-index: 3;
     opacity: 0.85;
     visibility: visible;
-
-    transform:
-        translate(-50%, -50%)
-        translateX(-130px)
-        rotateY(28deg)
-        scale(0.78);
+    transform: translate(-50%, -50%) translateX(-130px) rotateY(28deg) scale(0.78);
 }
 
-/* Ảnh bên phải - nằm phía sau */
 .gallery-slide.next-slide {
     z-index: 3;
     opacity: 0.85;
     visibility: visible;
-
-    transform:
-        translate(-50%, -50%)
-        translateX(130px)
-        rotateY(-28deg)
-        scale(0.78);
+    transform: translate(-50%, -50%) translateX(130px) rotateY(-28deg) scale(0.78);
 }
 
-/* Ảnh xa bên trái */
 .gallery-slide.far-prev {
     z-index: 1;
     opacity: 0.45;
     visibility: visible;
-
-    transform:
-        translate(-50%, -50%)
-        translateX(-195px)
-        rotateY(38deg)
-        scale(0.6);
+    transform: translate(-50%, -50%) translateX(-195px) rotateY(38deg) scale(0.6);
 }
 
-/* Ảnh xa bên phải */
 .gallery-slide.far-next {
     z-index: 1;
     opacity: 0.45;
     visibility: visible;
-
-    transform:
-        translate(-50%, -50%)
-        translateX(195px)
-        rotateY(-38deg)
-        scale(0.6);
+    transform: translate(-50%, -50%) translateX(195px) rotateY(-38deg) scale(0.6);
 }
 
-/* Số ảnh */
 .gallery-counter {
     text-align: center;
     margin-top: 0;
@@ -743,7 +657,6 @@ img { max-width: 100%; }
     color: #8b6a4c;
 }
 
-/* Chấm chuyển ảnh */
 .dots {
     display: flex;
     justify-content: center;
@@ -763,142 +676,6 @@ img { max-width: 100%; }
     background: #b99b3d;
     transform: scale(1.3);
 }
-
-/* Ẩn mũi tên cũ */
-#prev,
-#next,
-.slider .arrow {
-    display: none !important;
-}
-
-/* ========== ĐIỆN THOẠI ========== */
-
-@media (max-width: 800px) {
-
-    .wedding-gallery {
-        width: 100%;
-        max-width: 420px;
-        height: 450px;
-        margin: 20px auto 0;
-        perspective: 1200px;
-        isolation: isolate;
-    }
-
-    /* Ảnh chữ nhật đứng, không vượt khung */
-    .gallery-slide {
-        width: 230px;
-        height: 380px;
-        border-radius: 12px;
-    }
-
-    /* Ảnh giữa */
-    .gallery-slide.active {
-        z-index: 10;
-        opacity: 1;
-        visibility: visible;
-
-        transform:
-            translate(-50%, -50%)
-            translateX(0)
-            rotateY(0deg)
-            scale(1);
-    }
-
-    /* Ảnh trái */
-    .gallery-slide.prev-slide {
-        z-index: 3;
-        opacity: 0.8;
-
-        transform:
-            translate(-50%, -50%)
-            translateX(-155px)
-            rotateY(28deg)
-            scale(0.75);
-    }
-
-    /* Ảnh phải */
-    .gallery-slide.next-slide {
-        z-index: 3;
-        opacity: 0.8;
-
-        transform:
-            translate(-50%, -50%)
-            translateX(155px)
-            rotateY(-28deg)
-            scale(0.75);
-    }
-
-    /* Ảnh xa bên trái */
-    .gallery-slide.far-prev {
-        z-index: 1;
-        opacity: 0.4;
-
-        transform:
-            translate(-50%, -50%)
-            translateX(-205px)
-            rotateY(38deg)
-            scale(0.55);
-    }
-
-    /* Ảnh xa bên phải */
-    .gallery-slide.far-next {
-        z-index: 1;
-        opacity: 0.4;
-
-        transform:
-            translate(-50%, -50%)
-            translateX(205px)
-            rotateY(-38deg)
-            scale(0.55);
-    }
-}
-
-/* ========== ĐIỆN THOẠI MÀN HÌNH NHỎ ========== */
-
-@media (max-width: 390px) {
-
-    .wedding-gallery {
-        height: 410px;
-    }
-
-    .gallery-slide {
-        width: 205px;
-        height: 345px;
-    }
-
-    .gallery-slide.prev-slide {
-        transform:
-            translate(-50%, -50%)
-            translateX(-135px)
-            rotateY(28deg)
-            scale(0.75);
-    }
-
-    .gallery-slide.next-slide {
-        transform:
-            translate(-50%, -50%)
-            translateX(135px)
-            rotateY(-28deg)
-            scale(0.75);
-    }
-
-    .gallery-slide.far-prev {
-        transform:
-            translate(-50%, -50%)
-            translateX(-180px)
-            rotateY(38deg)
-            scale(0.55);
-    }
-
-    .gallery-slide.far-next {
-        transform:
-            translate(-50%, -50%)
-            translateX(180px)
-            rotateY(-38deg)
-            scale(0.55);
-    }
-}
-
 
 /* HỘP MỪNG CƯỚI */
 .wedding-gift {
@@ -1007,9 +784,6 @@ img { max-width: 100%; }
 /* CẢM ƠN */
 .thankyou { background: #f7e9d3; }
 
-
-/* TẠO KHOẢNG CÁCH GIỮA TÊN CÔ DÂU CHÚ RỂ */
-
 .thankyou h2 {
     word-spacing: 8px;
 }
@@ -1048,27 +822,22 @@ footer span {
     color: #ead5b1;
 }
 
-/* GIAO DIỆN ĐIỆN THOẠI */
+/* RESPONSIVE */
 @media (max-width: 800px) {
     .wedding-schedule-grid {
         grid-template-columns: 1fr;
         gap: 25px;
     }
-
     .schedule-card {
         padding: 65px 22px 28px;
         border-radius: 22px;
     }
-
     .schedule-card h3 { font-size: 24px; }
-
     .schedule-ribbon {
         font-size: 11px;
         padding: 10px 14px;
     }
-
     .schedule-actions { gap: 10px; }
-
     .schedule-btn {
         font-size: 11px;
         min-height: 52px;
@@ -1077,38 +846,25 @@ footer span {
 
 @media (max-width: 700px) {
     .section { padding: 65px 15px; }
-
     .couple-grid {
         grid-template-columns: 1fr;
         max-width: 400px;
     }
-
     .person img { height: 390px; }
-
     .couple-names { gap: 15px; }
-
     .couple-names h3 { font-size: 35px; }
-
     .countdown-box { gap: 8px; }
-
     .countdown-box > div {
         width: 75px;
         padding: 15px 5px;
     }
-
     .countdown-box strong { font-size: 25px; }
-
-    .slider img { height: 330px; }
-
     .gift-panel {
         padding: 40px 15px;
         border-radius: 20px;
     }
-
     .gift-tab { font-size: 12px; }
-
     .gift-qr { width: 225px; }
-
     .hero h1 { font-size: 68px; }
 }
 </style>
@@ -1122,8 +878,7 @@ footer span {
     Trình duyệt không hỗ trợ phát nhạc.
 </audio>
 
-<button class="music-btn" id="musicBtn"
-        aria-label="Bật hoặc tắt nhạc">♫</button>
+<button class="music-btn" id="musicBtn" aria-label="Bật hoặc tắt nhạc">♫</button>
 
 <!-- HOA RƠI -->
 <div id="petals" aria-hidden="true"></div>
@@ -1132,17 +887,11 @@ footer span {
 <section class="opening" id="opening">
     <div class="envelope">
         <p class="small-title">WEDDING INVITATION</p>
-
         <h1>Văn Sâm</h1>
         <h1><span>&</span></h1>
         <h1>Thu Trà</h1>
-
         <p class="opening-date">Chủ Nhật 29 . 11 . 2026</p>
-
-        <button class="seal" id="openBtn">
-            Mở thiệp ♡
-        </button>
-
+        <button class="seal" id="openBtn">Mở thiệp ♡</button>
         <p class="click-text">Chạm để mở lời mời</p>
     </div>
 </section>
@@ -1153,15 +902,10 @@ footer span {
     <section class="hero">
         <div class="hero-content">
             <p class="sub-heading">WE ARE GETTING MARRIED</p>
-
             <h1>Văn Sâm <span>&</span></h1>
             <h1>Thu Trà</h1>
-
             <p class="hero-date">29 November 2026</p>
-
             <div class="line"></div>
-
-            
         </div>
     </section>
 
@@ -1169,20 +913,16 @@ footer span {
     <section class="invitation section">
         <p class="eyebrow">SAVE THE DATE</p>
         <h2>Trân trọng kính mời</h2>
-
         <p class="description">
             Sự hiện diện của bạn là niềm vui và niềm hạnh phúc
             lớn lao đối với gia đình chúng tôi.
         </p>
-
         <div class="couple-names">
             <div>
                 <h3>Văn Sâm</h3>
                 <p>Chú rể</p>
             </div>
-
             <span class="ampersand">&amp;</span>
-
             <div>
                 <h3>Thu Trà</h3>
                 <p>Cô dâu</p>
@@ -1194,7 +934,6 @@ footer span {
     <section class="countdown section">
         <p class="eyebrow">COUNTDOWN TO OUR WEDDING</p>
         <h2>Ngày chung đôi</h2>
-
         <div class="countdown-box" id="countdownBox">
             <div>
                 <strong id="days">00</strong>
@@ -1219,20 +958,14 @@ footer span {
     <section class="couple section">
         <p class="eyebrow">THE BRIDE &amp; THE GROOM</p>
         <h2>Nhân vật chính</h2>
-
         <div class="couple-grid">
             <div class="person">
-                <img src="images/anhsam.jpg"
-                     alt="Chú rể Văn Sâm">
-
+                <img src="images/anhsam.jpg" alt="Chú rể Văn Sâm">
                 <h3>Văn Sâm</h3>
                 <p>THE GROOM</p>
             </div>
-
             <div class="person">
-                <img src="images/anh2.jpg"
-                     alt="Cô dâu Thu Trà">
-
+                <img src="images/anh2.jpg" alt="Cô dâu Thu Trà">
                 <h3>Thu Trà</h3>
                 <p>THE BRIDE</p>
             </div>
@@ -1241,29 +974,17 @@ footer span {
 
     <!-- LỊCH TRÌNH LỄ CƯỚI -->
     <section class="event section" id="weddingEvent">
-
         <p class="eyebrow">WEDDING CEREMONY</p>
         <h2>Lịch Trình Lễ Cưới</h2>
-
         <div class="wedding-schedule-grid">
 
             <!-- NHÀ GÁI -->
             <article class="schedule-card bride-schedule">
-
-                <div class="schedule-ribbon">
-                    LỄ VU QUY (NHÀ GÁI)
-                </div>
-
+                <div class="schedule-ribbon">LỄ VU QUY (NHÀ GÁI)</div>
                 <div class="schedule-symbol">♡</div>
-
                 <h3>Hôn Lễ Tại Tư Gia Nhà Gái</h3>
-
-                <p class="schedule-date">
-                    CHỦ NHẬT, NGÀY 29/11/2026
-                </p>
-
+                <p class="schedule-date">CHỦ NHẬT, NGÀY 29/11/2026</p>
                 <div class="schedule-divider"></div>
-
                 <div class="schedule-item">
                     <span class="schedule-icon">♧</span>
                     <div>
@@ -1271,7 +992,6 @@ footer span {
                         <p>Đón tiếp quan viên hai họ và người thân</p>
                     </div>
                 </div>
-
                 <div class="schedule-item">
                     <span class="schedule-icon">♡</span>
                     <div>
@@ -1279,7 +999,6 @@ footer span {
                         <p>Cử hành nghi thức lễ Vu Quy</p>
                     </div>
                 </div>
-
                 <div class="schedule-item">
                     <span class="schedule-icon">♨</span>
                     <div>
@@ -1287,65 +1006,34 @@ footer span {
                         <p>Thực hiện nghi thức truyền thống và chụp ảnh kỷ niệm</p>
                     </div>
                 </div>
-
                 <div class="schedule-divider dashed"></div>
-
                 <div class="schedule-item address-item">
                     <span class="schedule-icon">⌖</span>
                     <div>
                         <strong>Địa chỉ tổ chức:</strong>
-                        <p id="brideAddressText">
-                            Nhà văn hóa làng Bạch Liên,
-                            Liên Phương, Hồng Vân, Hà Nội
-                        </p>
+                        <p id="brideAddressText">Nhà văn hóa làng Bạch Liên, Liên Phương, Hồng Vân, Hà Nội</p>
                     </div>
                 </div>
-
                 <div class="schedule-actions">
-                    <a id="brideDirection"
-                       class="schedule-btn direction-btn"
-                       href="#"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        ➤ CHỈ ĐƯỜNG
-                    </a>
-
-                    <button type="button"
-                            class="schedule-btn calendar-btn"
-                            onclick="addWeddingCalendar('bride')">
-                        ▣ THÊM LỊCH
-                    </button>
+                    <a id="brideDirection" class="schedule-btn direction-btn" href="#" target="_blank" rel="noopener noreferrer">➤ CHỈ ĐƯỜNG</a>
+                    <button type="button" class="schedule-btn calendar-btn" onclick="addWeddingCalendar('bride')">▣ THÊM LỊCH</button>
                 </div>
-
             </article>
 
             <!-- NHÀ TRAI -->
             <article class="schedule-card groom-schedule">
-
-                <div class="schedule-ribbon">
-                    LỄ THÀNH HÔN (NHÀ TRAI)
-                </div>
-
+                <div class="schedule-ribbon">LỄ THÀNH HÔN (NHÀ TRAI)</div>
                 <div class="schedule-symbol">♕</div>
-
                 <h3>Hôn Lễ Tại Tư Gia Nhà Trai</h3>
-
-                <p class="schedule-date">
-                    CHỦ NHẬT, NGÀY 29/11/2026
-                </p>
-
+                <p class="schedule-date">CHỦ NHẬT, NGÀY 29/11/2026</p>
                 <div class="schedule-divider"></div>
-
                 <div class="schedule-item">
                     <span class="schedule-icon">♧</span>
                     <div>
-                        <strong>
-                            09:00 Sáng - Đón Khách &amp; Chụp Hình
-                        </strong>
+                        <strong>09:00 Sáng - Đón Khách &amp; Chụp Hình</strong>
                         <p>Đón tiếp khách quý và chụp ảnh kỷ niệm</p>
                     </div>
                 </div>
-
                 <div class="schedule-item">
                     <span class="schedule-icon">✧</span>
                     <div>
@@ -1353,7 +1041,6 @@ footer span {
                         <p>Khai tiệc mừng hạnh phúc đôi uyên ương</p>
                     </div>
                 </div>
-
                 <div class="schedule-item">
                     <span class="schedule-icon">♕</span>
                     <div>
@@ -1361,36 +1048,18 @@ footer span {
                         <p>Nghi thức rước dâu và đón dâu</p>
                     </div>
                 </div>
-
                 <div class="schedule-divider dashed"></div>
-
                 <div class="schedule-item address-item">
                     <span class="schedule-icon">⌖</span>
                     <div>
                         <strong>Địa chỉ tổ chức:</strong>
-                        <p id="groomAddressText">
-                            Số 10 đường Nhị Tam,
-                            Vân La, Hồng Vân, Hà Nội
-                        </p>
+                        <p id="groomAddressText">Số 10 đường Nhị Tam, Vân La, Hồng Vân, Hà Nội</p>
                     </div>
                 </div>
-
                 <div class="schedule-actions">
-                    <a id="groomDirection"
-                       class="schedule-btn direction-btn"
-                       href="#"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        ➤ CHỈ ĐƯỜNG
-                    </a>
-
-                    <button type="button"
-                            class="schedule-btn calendar-btn"
-                            onclick="addWeddingCalendar('groom')">
-                        ▣ THÊM LỊCH
-                    </button>
+                    <a id="groomDirection" class="schedule-btn direction-btn" href="#" target="_blank" rel="noopener noreferrer">➤ CHỈ ĐƯỜNG</a>
+                    <button type="button" class="schedule-btn calendar-btn" onclick="addWeddingCalendar('groom')">▣ THÊM LỊCH</button>
                 </div>
-
             </article>
 
         </div>
@@ -1399,110 +1068,56 @@ footer span {
     <!-- ALBUM ẢNH -->
     <section class="gallery section">
         <p class="eyebrow">OUR MEMORIES</p>
-
         <h2>Album ảnh cưới</h2>
-
-        <!-- ALBUM ẢNH CƯỚI -->
-<div class="wedding-gallery" id="weddingGallery">
-    <div class="gallery-track" id="galleryTrack"></div>
-</div>
-
-<div class="gallery-counter" id="galleryCounter">1 / 9</div>
-<div class="dots" id="dots"></div>
+        <div class="wedding-gallery" id="weddingGallery">
+            <div class="gallery-track" id="galleryTrack"></div>
+        </div>
+        <div class="gallery-counter" id="galleryCounter">1 / 9</div>
+        <div class="dots" id="dots"></div>
     </section>
 
     <!-- HỘP MỪNG CƯỚI -->
     <section class="wedding-gift section">
         <div class="gift-panel">
-
             <p class="eyebrow">CHÚC PHÚC TỪ XA</p>
-
             <h2>Hộp Mừng Cưới</h2>
-
             <p class="description">
                 Sự hiện diện và lời chúc phúc của quý khách
                 là niềm vinh hạnh to lớn của gia đình chúng mình!
             </p>
-
             <div class="gift-tabs">
-                <button class="gift-tab active"
-                        id="groomTab"
-                        aria-pressed="true">
-                    Mừng Chú Rể
-                </button>
-
-                <button class="gift-tab"
-                        id="brideTab"
-                        aria-pressed="false">
-                    Mừng Cô Dâu
-                </button>
+                <button class="gift-tab active" id="groomTab" aria-pressed="true">Mừng Chú Rể</button>
+                <button class="gift-tab" id="brideTab" aria-pressed="false">Mừng Cô Dâu</button>
             </div>
 
             <!-- QR CHÚ RỂ -->
             <div class="gift-content active" id="groomGift">
-
                 <div class="gift-qr">
-                    <img src="images/qrsam.jpg"
-                         alt="QR chuyển khoản chú rể Văn Sâm">
+                    <img src="images/qrsam.jpg" alt="QR chuyển khoản chú rể Văn Sâm">
                 </div>
-
-                <h3 class="gift-owner" id="groomOwner">
-                    VĂN SÂM
-                </h3>
-
-                <p class="gift-bank" id="groomBank">
-                    VPBank
-                </p>
-
-                <p class="gift-account" id="groomAccount">
-                    249098795
-                </p>
-
-                <button class="copy-btn"
-                        onclick="copyAccount('groom')">
-                    ▣ SAO CHÉP STK
-                </button>
+                <h3 class="gift-owner" id="groomOwner">VĂN SÂM</h3>
+                <p class="gift-bank" id="groomBank">VPBank</p>
+                <p class="gift-account" id="groomAccount">249098795</p>
+                <button class="copy-btn" onclick="copyAccount('groom')">▣ SAO CHÉP STK</button>
             </div>
 
             <!-- QR CÔ DÂU -->
             <div class="gift-content" id="brideGift">
-
                 <div class="gift-qr">
-                    <img src="images/qrtra.jpg"
-                         alt="QR chuyển khoản cô dâu Thu Trà">
+                    <img src="images/qrtra.jpg" alt="QR chuyển khoản cô dâu Thu Trà">
                 </div>
-
-                <h3 class="gift-owner" id="brideOwner">
-                    THU TRÀ
-                </h3>
-
-                <p class="gift-bank" id="brideBank">
-                    TECHCOMBANK
-                </p>
-
-                <p class="gift-account" id="brideAccount">
-                    19036704487016
-                </p>
-
-                <button class="copy-btn"
-                        onclick="copyAccount('bride')">
-                    ▣ SAO CHÉP STK
-                </button>
+                <h3 class="gift-owner" id="brideOwner">THU TRÀ</h3>
+                <p class="gift-bank" id="brideBank">TECHCOMBANK</p>
+                <p class="gift-account" id="brideAccount">19036704487016</p>
+                <button class="copy-btn" onclick="copyAccount('bride')">▣ SAO CHÉP STK</button>
             </div>
-
         </div>
     </section>
 
     <!-- LỜI CẢM ƠN -->
     <section class="thankyou section">
-        <h2>
-    Văn Sâm <span class="thankyou-amp">&amp;</span> Thu Trà
-</h2>
-        <p>
-            Cảm ơn bạn đã dành thời gian chia sẻ
-            niềm hạnh phúc cùng chúng mình.
-        </p>
-
+        <h2>Văn Sâm <span class="thankyou-amp">&amp;</span> Thu Trà</h2>
+        <p>Cảm ơn bạn đã dành thời gian chia sẻ niềm hạnh phúc cùng chúng mình.</p>
         <p class="signature">With love ♡</p>
     </section>
 
@@ -1515,19 +1130,16 @@ footer span {
 
 <script>
 /* ==========================================
-   THÔNG TIN THIỆP CƯỚI
+   THÔNG TIN THIỆP CƯỚI & XỬ LÝ JS
 ========================================== */
-
 const CONFIG = {
     weddingDate: "2026-11-29T00:00:00+00:00",
-
     groom: {
         address: "Số 10 đường Nhị Tam, Vân La, Hồng Vân, Hà Nội",
         bank: "VPBank",
         account: "249098795",
         owner: "VĂN SÂM"
     },
-
     bride: {
         address: "Nhà văn hóa làng Bạch Liên, Liên Phương, Hồng Vân, Hà Nội",
         bank: "TECHCOMBANK",
@@ -1536,10 +1148,7 @@ const CONFIG = {
     }
 };
 
-/* ==========================================
-   MỞ THIỆP VÀ PHÁT NHẠC
-========================================== */
-
+/* MỞ THIỆP VÀ PHÁT NHẠC */
 const opening = document.getElementById("opening");
 const mainContent = document.getElementById("mainContent");
 const openBtn = document.getElementById("openBtn");
@@ -1549,433 +1158,169 @@ const musicBtn = document.getElementById("musicBtn");
 music.volume = 0.7;
 
 openBtn.addEventListener("click", () => {
-
     opening.classList.add("hide");
-
     setTimeout(() => {
         opening.style.display = "none";
         mainContent.style.display = "block";
-        window.scrollTo(0, 0);
-    }, 1000);
-
-    musicBtn.style.display = "block";
-
-    music.play()
-        .then(() => {
+        musicBtn.style.display = "block";
+        music.play().then(() => {
             musicBtn.classList.add("playing");
-            musicBtn.textContent = "♫";
-        })
-        .catch(error => {
-            console.log("Không thể phát nhạc:", error);
-            musicBtn.classList.remove("playing");
+        }).catch(err => {
+            console.log("Không thể tự động phát nhạc:", err);
         });
+    }, 1000);
 });
 
-/* BẬT / TẮT NHẠC */
-
 musicBtn.addEventListener("click", () => {
-
     if (music.paused) {
-        music.play()
-            .then(() => {
-                musicBtn.classList.add("playing");
-            })
-            .catch(error => {
-                console.log("Lỗi phát nhạc:", error);
-            });
+        music.play();
+        musicBtn.classList.add("playing");
     } else {
         music.pause();
         musicBtn.classList.remove("playing");
     }
 });
 
-/* ==========================================
-   ĐẾM NGƯỢC
-========================================== */
+/* HIỆU ỨNG HOA RƠI */
+const petalsContainer = document.getElementById("petals");
+for (let i = 0; i < 20; i++) {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    petal.style.animationDelay = (Math.random() * 5) + "s";
+    petal.style.opacity = Math.random() * 0.5 + 0.3;
+    petalsContainer.appendChild(petal);
+}
 
-
-const weddingDate = new Date(
-    "2026-11-29T00:00:00+00:00"
-).getTime();
-
+/* ĐẾM NGƯỢC THỜI GIAN */
+const weddingTime = new Date("2026-11-29T09:00:00").getTime();
 function updateCountdown() {
-    const now = Date.now();
-    const distance = weddingDate - now;
-
-    if (distance <= 0) {
-        document.getElementById("countdownBox").innerHTML =
-            "<h3>Chúng mình đã về chung một nhà! ♡</h3>";
-        return;
+    const now = new Date().getTime();
+    const diff = weddingTime - now;
+    if (diff > 0) {
+        document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
     }
-
-    const days = Math.floor(distance / 86400000);
-    const hours = Math.floor((distance % 86400000) / 3600000);
-    const minutes = Math.floor((distance % 3600000) / 60000);
-    const seconds = Math.floor((distance % 60000) / 1000);
-
-    document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
-
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
 }
-
-updateCountdown();
 setInterval(updateCountdown, 1000);
+updateCountdown();
 
-/* ==========================================
-  
-
-/* ========================================
-
-/* =====================================
-   /* =========================================
-   ALBUM ẢNH CƯỚI 3D - VUỐT NGANG
-========================================= */
-
-(() => {
-    const photos = [
-        "images/anh1.jpg",
-        "images/anh2.jpg",
-        "images/anhsam.jpg",
-        "images/anh3.jpg",
-        "images/anh4.jpg",
-        "images/anh5.jpg",
-        "images/anh6.jpg",
-        "images/anh7.jpg",
-        "images/anh8.jpg"
-    ];
-
-    const gallery = document.getElementById("weddingGallery");
-    const track = document.getElementById("galleryTrack");
-    const counter = document.getElementById("galleryCounter");
-    const dotsBox = document.getElementById("dots");
-
-    if (!gallery || !track || !counter || !dotsBox) return;
-
-    let current = 0;
-    let timer = null;
-    let startX = 0;
-    let startY = 0;
-    let isDragging = false;
-    let moved = false;
-
-    const slides = [];
-    const dots = [];
-
-    track.innerHTML = "";
-    dotsBox.innerHTML = "";
-
-    // TẠO ẢNH
-    photos.forEach((src, index) => {
-        const slide = document.createElement("div");
-        slide.className = "gallery-slide";
-
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = "Ảnh cưới Văn Sâm và Thu Trà";
-        img.draggable = false;
-
-        slide.appendChild(img);
-        track.appendChild(slide);
-        slides.push(slide);
-
-        const dot = document.createElement("span");
-        dot.className = "dot";
-
-        dot.addEventListener("click", () => {
-            showSlide(index);
-            restartAuto();
-        });
-
-        dotsBox.appendChild(dot);
-        dots.push(dot);
-    });
-
-    function showSlide(index) {
-        current = (index + photos.length) % photos.length;
-
-        slides.forEach((slide, i) => {
-            slide.className = "gallery-slide";
-
-            let distance = i - current;
-            const half = Math.floor(photos.length / 2);
-
-            if (distance > half) distance -= photos.length;
-            if (distance < -half) distance += photos.length;
-
-            if (distance === 0) {
-                slide.classList.add("active");
-            } else if (distance === -1) {
-                slide.classList.add("prev-slide");
-            } else if (distance === 1) {
-                slide.classList.add("next-slide");
-            } else if (distance === -2) {
-                slide.classList.add("far-prev");
-            } else if (distance === 2) {
-                slide.classList.add("far-next");
-            }
-        });
-
-        dots.forEach((dot, i) => {
-            dot.classList.toggle("active", i === current);
-        });
-
-        counter.textContent = `${current + 1} / ${photos.length}`;
-    }
-
-    function nextSlide() {
-        showSlide(current + 1);
-    }
-
-    function prevSlide() {
-        showSlide(current - 1);
-    }
-
-    function restartAuto() {
-        clearInterval(timer);
-        timer = setInterval(nextSlide, 4500);
-    }
-
-    // VUỐT BẰNG CẢM ỨNG HOẶC CHUỘT
-    gallery.addEventListener("pointerdown", (e) => {
-        if (e.pointerType === "mouse" && e.button !== 0) return;
-
-        startX = e.clientX;
-        startY = e.clientY;
-        isDragging = true;
-        moved = false;
-
-        clearInterval(timer);
-    });
-
-    gallery.addEventListener("pointermove", (e) => {
-        if (!isDragging) return;
-
-        if (Math.abs(e.clientX - startX) > 10) {
-            moved = true;
-        }
-    });
-
-    gallery.addEventListener("pointerup", (e) => {
-        if (!isDragging) return;
-
-        const diffX = e.clientX - startX;
-        const diffY = e.clientY - startY;
-
-        isDragging = false;
-
-        if (
-            Math.abs(diffX) > 35 &&
-            Math.abs(diffX) > Math.abs(diffY)
-        ) {
-            if (diffX < 0) {
-                nextSlide();
-            } else {
-                prevSlide();
-            }
-        }
-
-        restartAuto();
-    });
-
-    gallery.addEventListener("pointercancel", () => {
-        isDragging = false;
-        restartAuto();
-    });
-
-    // BẤM VÀO ẢNH HAI BÊN
-    gallery.addEventListener("click", (e) => {
-        if (moved) {
-            moved = false;
-            return;
-        }
-
-        const slide = e.target.closest(".gallery-slide");
-
-        if (!slide) return;
-
-        if (slide.classList.contains("next-slide")) {
-            nextSlide();
-            restartAuto();
-        } else if (slide.classList.contains("prev-slide")) {
-            prevSlide();
-            restartAuto();
-        }
-    });
-
-    // KHỞI ĐỘNG
-    showSlide(0);
-    restartAuto();
-})();
-
-/* ==========================================
-   GOOGLE MAPS
-========================================== */
-
-
-function setupMap(type) {
-    const info = CONFIG[type];
-
-    const addressText = document.getElementById(type + "AddressText");
-    const direction = document.getElementById(type + "Direction");
-
-    if (!info || !addressText || !direction) return;
-
-    // Hiển thị địa chỉ nhà trai, nhà gái như cũ
-    addressText.textContent = info.address;
-
-    // Nhà trai dùng tọa độ chính xác
-    // Nhà gái giữ nguyên địa chỉ
-    const destination =
-        type === "groom"
-            ? "20.8745084,105.9183077"
-            : info.address;
-
-    const address = encodeURIComponent(destination);
-
-    direction.href =
-        "https://www.google.com/maps/dir/?api=1&destination=" +
-        address;
-
-    direction.target = "_blank";
-    direction.rel = "noopener noreferrer";
-}
-
-setupMap("groom");
-setupMap("bride");
-
-/* ==========================================
-   THÊM LỊCH GOOGLE CALENDAR
-========================================== */
-
-function addWeddingCalendar(type) {
-    const info = CONFIG[type];
-    if (!info) return;
-
-    const title = type === "groom"
-    
-        ? "Lễ Thành Hôn - Văn Sâm & Thu Trà"
-        : "Lễ Vu Quy - Văn Sâm & Thu Trà";
-
-    // Giờ minh họa, cần xác nhận lịch thực tế
-    const start = "20261129T010000Z";
-    const end = "20261129T080000Z";
-
-    const url =
-        "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-        "&text=" + encodeURIComponent(title) +
-        "&dates=" + start + "/" + end +
-        "&details=" + encodeURIComponent(
-            "Trân trọng kính mời tham dự lễ cưới của Văn Sâm và Thu Trà."
-        ) +
-        "&location=" + encodeURIComponent(info.address);
-
-    window.open(url, "_blank", "noopener,noreferrer");
-}
-
-/* ==========================================
-   HỘP MỪNG CƯỚI - CHUYỂN TAB
-========================================== */
-
+/* TAB MỪNG CƯỚI */
 const groomTab = document.getElementById("groomTab");
 const brideTab = document.getElementById("brideTab");
 const groomGift = document.getElementById("groomGift");
 const brideGift = document.getElementById("brideGift");
 
-function switchGift(type) {
-    const isGroom = type === "groom";
-
-    groomTab.classList.toggle("active", isGroom);
-    brideTab.classList.toggle("active", !isGroom);
-
-    groomTab.setAttribute("aria-pressed", String(isGroom));
-    brideTab.setAttribute("aria-pressed", String(!isGroom));
-
-    groomGift.classList.toggle("active", isGroom);
-    brideGift.classList.toggle("active", !isGroom);
-}
-
-groomTab.addEventListener("click", () => switchGift("groom"));
-brideTab.addEventListener("click", () => switchGift("bride"));
-
-/* ==========================================
-   HIỂN THỊ THÔNG TIN NGÂN HÀNG
-========================================== */
-
-function setupBank(type) {
-    const info = CONFIG[type];
-
-    document.getElementById(type + "Owner").textContent =
-        info.owner;
-
-    document.getElementById(type + "Bank").textContent =
-        info.bank;
-
-    document.getElementById(type + "Account").textContent =
-        info.account;
-}
-
-setupBank("groom");
-setupBank("bride");
-
-/* ==========================================
-   SAO CHÉP SỐ TÀI KHOẢN
-========================================== */
-
-async function copyAccount(type) {
-    const account = CONFIG[type].account;
-
-    if (!account) {
-        alert("Chưa cập nhật số tài khoản!");
-        return;
-    }
-
-    try {
-        await navigator.clipboard.writeText(account);
-        alert("Đã sao chép số tài khoản: " + account);
-    } catch (error) {
-        prompt("Sao chép số tài khoản:", account);
-    }
-}
-
-/* ==========================================
-   HIỆU ỨNG HOA RƠI
-========================================== */
-
-const petalsContainer = document.getElementById("petals");
-
-for (let i = 0; i < 20; i++) {
-    const petal = document.createElement("span");
-
-    petal.className = "petal";
-    petal.style.left = Math.random() * 100 + "%";
-    petal.style.animationDuration =
-        (8 + Math.random() * 10) + "s";
-    petal.style.animationDelay =
-        (-Math.random() * 18) + "s";
-    petal.style.opacity =
-        0.2 + Math.random() * 0.35;
-
-    petalsContainer.appendChild(petal);
-}
-
-/* ==========================================
-   KIỂM TRA NHẠC
-========================================== */
-
-music.addEventListener("error", () => {
-    console.warn("Không tìm thấy file images/wedding.mp3");
+groomTab.addEventListener("click", () => {
+    groomTab.classList.add("active");
+    brideTab.classList.remove("active");
+    groomGift.classList.add("active");
+    brideGift.classList.remove("active");
 });
 
-console.log("Thiệp cưới Văn Sâm & Thu Trà đã sẵn sàng!");
+brideTab.addEventListener("click", () => {
+    brideTab.classList.add("active");
+    groomTab.classList.remove("active");
+    brideGift.classList.add("active");
+    groomGift.classList.remove("active");
+});
 
+/* SAO CHÉP STK */
+function copyAccount(type) {
+    const acc = type === 'groom' ? CONFIG.groom.account : CONFIG.bride.account;
+    navigator.clipboard.writeText(acc).then(() => {
+        alert("Đã sao chép số tài khoản: " + acc);
+    });
+}
+
+/* LINK CHỈ ĐƯỜNG VÀ THÊM LỊCH */
+document.getElementById("brideDirection").href = "https://maps.google.com/?q=" + encodeURIComponent(CONFIG.bride.address);
+document.getElementById("groomDirection").href = "https://maps.google.com/?q=" + encodeURIComponent(CONFIG.groom.address);
+
+function addWeddingCalendar(type) {
+    const title = type === 'bride' ? "Lễ Vu Quy - Văn Sâm & Thu Trà" : "Lễ Thành Hôn - Văn Sâm & Thu Trà";
+    const location = type === 'bride' ? CONFIG.bride.address : CONFIG.groom.address;
+    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=20261129T020000Z/20261129T090000Z&location=${encodeURIComponent(location)}`;
+    window.open(url, '_blank');
+}
+
+/* ALBUM ẢNH 3D SLIDER */
+const images = [
+    "images/anh1.jpg", "images/anh2.jpg", "images/anhsam.jpg",
+    "images/anh1.jpg", "images/anh2.jpg", "images/anhsam.jpg",
+    "images/anh1.jpg", "images/anh2.jpg", "images/anhsam.jpg"
+];
+
+const track = document.getElementById("galleryTrack");
+const counter = document.getElementById("galleryCounter");
+const dotsContainer = document.getElementById("dots");
+let currentIndex = 0;
+
+images.forEach((src, idx) => {
+    const slide = document.createElement("div");
+    slide.classList.add("gallery-slide");
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = "Ảnh cưới " + (idx + 1);
+    slide.appendChild(img);
+    track.appendChild(slide);
+
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (idx === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+        currentIndex = idx;
+        updateGallery();
+    });
+    dotsContainer.appendChild(dot);
+});
+
+const slides = document.querySelectorAll(".gallery-slide");
+const dots = document.querySelectorAll(".dot");
+
+function updateGallery() {
+    slides.forEach((slide, idx) => {
+        slide.className = "gallery-slide";
+        let offset = (idx - currentIndex + images.length) % images.length;
+        if (offset > images.length / 2) offset -= images.length;
+
+        if (offset === 0) slide.classList.add("active");
+        else if (offset === 1) slide.classList.add("next-slide");
+        else if (offset === -1) slide.classList.add("prev-slide");
+        else if (offset === 2) slide.classList.add("far-next");
+        else if (offset === -2 || offset === -(images.length - 2)) slide.classList.add("far-prev");
+    });
+
+    dots.forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === currentIndex);
+    });
+    counter.innerText = `${currentIndex + 1} / ${images.length}`;
+}
+
+updateGallery();
+
+// Hỗ trợ vuốt tay (Swipe) trên điện thoại
+let startX = 0;
+const galleryEl = document.getElementById("weddingGallery");
+
+galleryEl.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+});
+
+galleryEl.addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateGallery();
+    } else if (endX - startX > 50) {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateGallery();
+    }
+});
 </script>
+
 </body>
 </html>
